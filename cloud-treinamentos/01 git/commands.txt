@@ -21,3 +21,13 @@ git push
 #
 
 git show <hash commit>
+
+#
+
+# volta para versão específica sem deletar arquivos
+
+git reset <hash commit rollback> 
+
+# volta para versão específica DELETANDO arquivos
+
+git reset --hard <hash commit rollback> 
