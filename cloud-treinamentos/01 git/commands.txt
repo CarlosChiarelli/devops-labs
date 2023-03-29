@@ -1,0 +1,11 @@
+git config --global user.name "Carlos Augusto Jardim Chiarelli"
+
+git config --global user.email "ca.chiarelli.97@gmail.com"
+
+#
+
+git init
+
+#
+
+
