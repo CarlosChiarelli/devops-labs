@@ -4,4 +4,4 @@ docker build -t customimage .
 
 docker run -itd customimage
 
-docker inspect
+docker inspect ID
