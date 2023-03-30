@@ -1,5 +1,10 @@
 FROM ubuntu
 
+LABEL MAINTAINER="Carlos Augusto Chiarelli <ca.chiarelli.97@gmail.com>"
+LABEL APP_VERSION="1.0.0"
+
+ENV NPM_VERSION=8 ENVIRONMENT=PROD
+
 RUN apt-get update && apt-get install -y git nano npm
 
 WORKDIR /usr/share/myapp
