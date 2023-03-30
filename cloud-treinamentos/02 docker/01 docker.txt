@@ -1,0 +1,127 @@
+#
+
+docker run --help
+
+docker run hello-world
+
+docker run -it ubuntu bash
+
+docker ps --help
+
+docker ps
+
+docker ps -a
+
+docker rm 584
+
+docker rm 982 c50c
+
+docker images
+
+docker rmi feb5d9fea6a5
+
+docker rmi ubuntu
+
+#
+
+docker run -d nginx
+
+docker stop 2c2
+
+docker rm 2c2
+
+docker run -d -p 8080:80 nginx
+
+docker rm -f 49b
+
+docker run -d -p 8080:80 --name webserver nginx
+
+docker rm -f webserver
+
+#
+
+docker run -d -p 8080:80 --name webserver nginx
+
+docker exec --help
+
+docker exec webserver ls
+
+docker exec -it webserver bash
+
+# dentro do container
+
+cd /usr/share/nginx/html/
+
+cat index.html 
+
+apt-get install vim -y
+
+vim index.html 
+
+more index.html
+
+#
+
+docker run -itd -p 8080:80 --name webserver nginx
+
+# altera arquivos dentro do container
+
+docker exec -it webserver bash
+
+# cria uma imagem a partir de um container rodando
+
+docker commit webserver mywebsite
+
+docker rm -f webserver
+
+docker run -itd -p 8080:80 --name webserver mywebsite
+
+#
+
+docker run -itd -p 8080:80 -v /usr/share/nginx/html --name webserver nginx
+
+# alterando arquivo /usr/share/nginx/html/index.html
+
+docker exec -it webserver bash
+
+docker stop webserver
+
+docker inspect webserver
+
+docker restart webserver
+
+docker rm -f webserver
+
+docker volume ls
+
+#
+
+mkdir Downloads/website
+
+docker run -itd -p 8080:80 -v /home/carlos/Downloads/website:/usr/share/nginx/html --name webserver nginx
+
+vim Downloads/website/index.html
+
+docker run -itd -p 8081:80 --volumes-from webserver --name siteinstitucional nginx
+
+docker ps
+
+docker volume ls
+
+docker volume rm 0a0fd1164450a526cfcb15b99fd7bc96c13c32d76ccf9d5453a8c03a71b34225
+
+#
+
+docker network create network1
+
+docker network ls
+
+docker run --network network1 --name mysqldb -e MYSQL_ROOT_PASSWORD=carlos01 -e MYSQL_DATABASE=wordpress -d mysql
+
+docker run -itd --name wordpress --network network1 -e WORDPRESS_DB_USER=root -e WORDPRESS_DB_PASSWORD=carlos01 -e WORDPRESS_DB_HOST=mysqldb:3306 -e WORDPRESS_DB_NAME=wordpress -p 8080:80 wordpress
+
+#
+
+
+
+
