@@ -31,3 +31,58 @@ git reset <hash commit rollback>
 # volta para versão específica DELETANDO arquivos
 
 git reset --hard <hash commit rollback> 
+
+#
+
+git clone <repository.git>
+
+git push
+
+git pull
+
+#
+
+git branch
+
+git checkout -b desenvolvimento
+
+git checkout main
+
+#
+
+git checkout desenvolvimento
+
+touch about-us.php
+
+touch blog.php
+
+git add .
+
+git commit -m "add about-us and blog"
+
+# preciso ir para branch que vai receber o conteúdo
+
+git checkout main
+
+git merge desenvolvimento
+
+#
+
+# para renomear uma branch é preciso renomear de deletá-la
+
+git branch -m prd
+
+# envia a nova branch pro repositório remoto
+
+git push origin -u prd
+
+# para evitar erro é necessário alterar branch prd como default e desproteger a main pela interface web (gitlab)
+
+git push origin --delete main
+
+#
+
+
+
+
+
