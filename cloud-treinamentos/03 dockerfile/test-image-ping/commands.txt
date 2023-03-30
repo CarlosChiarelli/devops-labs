@@ -1,0 +1,8 @@
+docker build -t test-ping .
+
+docker run -it test-ping
+
+# substitui o comando CMD
+
+docker run -it test-ping ping google.com
+
