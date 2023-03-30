@@ -1,0 +1,5 @@
+docker build -t customimage .
+
+docker run -itd customimage
+
+docker exec -it 994 bash
