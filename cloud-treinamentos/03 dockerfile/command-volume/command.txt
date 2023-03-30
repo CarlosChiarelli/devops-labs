@@ -1,0 +1,7 @@
+docker volume ls
+
+docker build -t customimage .
+
+docker run -itd customimage
+
+docker inspect
