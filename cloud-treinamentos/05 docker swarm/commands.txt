@@ -1,0 +1,21 @@
+docker swarm init
+
+# worker
+docker swarm join --token SWMTKN-1-2vjb5k4g52vhb2ou6ae75o2aldvzq8au3k4rdx252ej8sc2j8y-1p8etq5lzrcqbaxyvhqbe38i2 10.0.8.106:2377
+
+docker swarm join-token manager
+
+# manager
+docker swarm join --token SWMTKN-1-2vjb5k4g52vhb2ou6ae75o2aldvzq8au3k4rdx252ej8sc2j8y-76p1ns0c1dn779kv9t916n5bo 10.0.8.106:2377
+
+docker swarm leave
+
+# subindo imagem visualizer dentro de um manager
+
+docker service create   --name=viz   --publish=8080:8080/tcp   --constraint=node.role==manager   --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock   dockersamples/visualizer
+
+#
+
+# clone repository example-voting-app docker dentro do manager
+
+git clone https://github.com/dockersamples/example-voting-app.git
