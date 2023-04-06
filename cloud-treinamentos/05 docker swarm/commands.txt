@@ -19,3 +19,12 @@ docker service create   --name=viz   --publish=8080:8080/tcp   --constraint=node
 # clone repository example-voting-app docker dentro do manager
 
 git clone https://github.com/dockersamples/example-voting-app.git
+
+docker stack deploy --compose-file=docker-stack.yml voting_stack
+
+docker service ls
+
+docker stack ls
+
+docker ps
+
