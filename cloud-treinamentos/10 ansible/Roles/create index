@@ -1,0 +1,1 @@
+echo 'Trabalhando com vhost' > ~/roles/apache_vhost/files/index.html

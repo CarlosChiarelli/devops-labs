@@ -1,0 +1,31 @@
+---
+- name: Instala o httpd
+  apt:
+    name: apache2
+    state: latest
+
+- name: Inicia o httpd
+  service:
+    name: apache2
+    state: started
+    enabled: true
+
+- name: Verifica se o diretório vhost está presente
+  file:
+    path: "/var/www/vhosts/{{ ansible_hostname }}"
+    state: directory
+
+- name: Cria um index para teste
+  copy:
+    src: index.html
+    dest: "/var/www/vhosts/{{ ansible_hostname }}"
+
+- name: Cria o arquivo vhost baseado num template
+  template:
+    src: vhost.conf.j2
+    dest: /etc/apache2/conf-available/vhost.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart_httpd
