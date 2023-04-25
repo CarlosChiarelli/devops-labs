@@ -1,0 +1,29 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
+
+# Configure the AWS Provider
+provider "aws" {
+  region     = "us-east-1"
+  access_key = "secret"
+  secret_key = "secret"
+}
+
+resource "aws_instance" "instancia1" {
+  ami           = "ami-0aa2b7722dc1b5612"
+  instance_type = "t2.micro"
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.instancia1.private_ip} >> private_ips.txt"
+  }
+}
+
+resource "aws_eip" "eip_instancia1" {
+  instance = aws_instance.instancia1.id
+  vpc      = true
+}
+
