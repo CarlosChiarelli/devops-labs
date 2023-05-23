@@ -1,0 +1,52 @@
+## Instalando e configurando o Ansible Master e agent
+
+# Habilitar o repositório do Puppet no Ubuntu 20.04
+wget https://apt.puppet.com/puppet7-release-focal.deb
+sudo dpkg -i puppet7-release-focal.deb
+sudo apt-get update
+
+================================
+
+# Instalando o Puppet Server
+sudo apt-get install -y puppetserver
+sudo nano /etc/default/puppetserver # Configurando  o Puppet Server para usar menos memória / Edite este arquivo na linha que possui JAVA_ARGS=
+sudo systemctl start puppetserver
+sudo systemctl enable puppetserver
+puppetserver -v # Talvez precise relogar no SSH da instância para este comando funcionar.
+sudo /opt/puppetlabs/bin/puppet config set server DNS-PRIVADO-MASTER --section main
+sudo /opt/puppetlabs/bin/puppet config set server ip-10-0-72-229.ec2.internal --section main
+
+================================
+
+# Instalando o Puppet Agent
+sudo apt-get install -y puppet-agent
+
+================================
+
+# Configurar a comunicação entre os nodes
+
+# Acesse a maquina Agent e rode os comandos abaixo
+sudo /opt/puppetlabs/bin/puppet config set server DNS-PRIVADO-MASTER --section main
+sudo /opt/puppetlabs/bin/puppet ssl bootstrap
+
+# Acesse a Master e rode os comandos abaixo
+sudo /opt/puppetlabs/bin/puppetserver ca list --all # Lista os certificados disponiveis para validação.
+sudo /opt/puppetlabs/bin/puppetserver ca sign --certname NOME-DO-CERTIFICADO # Assinale o certificado vindo do agente como valido.
+sudo /opt/puppetlabs/bin/puppetserver ca sign --certname ip-10-0-77-21.ec2.internal
+================================
+
+## Criando nosso primeiro manifesto  # https://puppet.com/docs/puppet/7/puppet_language.html
+
+Você usará a linguagem declarativa do Puppet para descrever o estado desejado do seu sistema.
+
+Uma coisa que vocês precisam saber é o que são manifestos, que são basicamente arquivos aonde você descreverá o estado desejado do sistema. 
+Os manifestos descrevem como os recursos da rede e do sistema operacional, como arquivos, pacotes e serviços, devem ser configurados.
+O Puppet então compila esses manifestos em catálogos e aplica cada catálogo a seu nó correspondente para garantir que o nó seja configurado corretamente em sua infraestrutura.
+
+# Tipos de recursos  # https://puppet.com/docs/puppet/7/resource_types.html
+
+sudo mkdir -p /etc/puppet/code/environtments/production/manifests/
+sudo nano /etc/puppet/code/environtments/production/manifests/manifesto1.pp
+
+sudo systemctl restart puppetserver
+sudo /opt/puppetlabs/bin/puppet agent --test
