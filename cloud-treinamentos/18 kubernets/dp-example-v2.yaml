@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aplicacao-dp
+  labels:
+    project: xcalota
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: nginx
+      labels:
+        project: xcalota
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:1.22.0
+  selector:
+    matchLabels:
+      project: xcalota
