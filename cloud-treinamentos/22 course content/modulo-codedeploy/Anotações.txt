@@ -1,0 +1,17 @@
+Aula: Preparando o ambiente 
+
+1. Criar uma função para o CodeDeploy (CodeDeployDefaultRole) e uma para a instância EC2 (readS3) (ubuntu).
+2. Subir uma instância EC2 e instalar o agent do CodeDeploy. (userdata)
+3. Criar a aplicação e o grupo de implantação no CodeDeploy.
+
+Aula: Criando nosso appspec
+
+1. Adicionar nova politica a funcao da aula 2. (policy/policy-access-ecr.json)
+2. Criar bucket S3.
+3. Revisar appspec e seus scripts.
+4. Compactar o appspec e coloca-lo no bucket.
+5. Criar o CodeBuild app e grupo de implantacao.
+
+Link doc. instalação agent:   https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-ubuntu.html
+Link doc. parametros appspec: https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-example.html
+Link doc. auth ecr:           https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html
