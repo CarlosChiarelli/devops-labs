@@ -1,0 +1,91 @@
+uname
+uname -s
+uname -n
+uname -r
+uname -v
+uname -m
+uname help
+uname --help
+uname -p
+uname -i
+uname -o
+uname -a
+clear
+sudo uname
+sudo su
+who
+free
+man
+man sudo
+man clear
+pwd
+cd ..
+pwd
+ls
+more pendencias\ globais
+ls -a
+ls -l
+ls -l -a
+ls -la
+mkdir test
+rm -rf test
+mkdir test/subtest
+mkdir -p test/subtest
+ls test/subtest
+rm -rf test
+ls
+mkdir test
+cp pendencias\ globais test/pendencias\ globais
+ls test
+cat test/pendencias\ globais
+rm -rf test
+echo "olaaa" > file,txt
+mv file,txt file.txt
+cat file.txt
+mkdir test
+mv file.txt test/file.txt
+ls
+cat test/file.txt
+cd test
+mv file.txt new-file.txt
+ls
+more new-file.txt
+cd ..
+touch new-file.txt
+ls -l
+touch new-file.txt
+ls -l
+vim new-file.txt
+cat new-file.txt
+head new-file.txt
+head -n 1 new-file.txt
+tail new-file.txt
+more new-file.txt
+less new-file.txt
+grep a new-file.txt
+grep um new-file.txt
+grep -n um new-file.txt
+grep -n -i um new-file.txt
+ls -l | grep test
+ls -a > saida.txt
+more saida.txt
+cat saida.txt
+ls >> saida.txt
+cat saida.txt
+ls -l >> saida.txt
+cat saida.txt
+mkdir kubedev/test
+mkdir kubedev/test 2> erro.txt
+cat erro.txt
+ls -a /dev
+df -h
+sudo mount /dev/sda1 /mnt/hd
+cd /mnt
+ls
+cd ~
+sudo umount /mnt/hd
+sudo dpkg -i ~/Downloads/code.deb
+sudo apt update
+sudo apt install nodejs
+node
+sudo apt search nodejs
