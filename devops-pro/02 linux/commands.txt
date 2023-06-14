@@ -89,3 +89,15 @@ sudo apt update
 sudo apt install nodejs
 node
 sudo apt search nodejs
+ps
+ps -a
+ps -ax
+ps -aux
+ps -x
+kill 76417
+top
+htop
+ssh-keygen -t rsa -b 2048
+cat .ssh/id_rsa.pub
+ssh root@67.205.186.162
+ssh -i ~/.ssh/id_rsa root@67.205.186.162
