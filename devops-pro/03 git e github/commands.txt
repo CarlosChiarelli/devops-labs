@@ -1,0 +1,45 @@
+git config --list
+cat .gitconfig
+git init
+git status
+touch arquivo.txt
+git add arquivo.txt
+git reset
+git commit -m "chance arquivo.txt"
+git log
+git log -p arquivo.txt
+git checkout 64b7ef219bf4c253a56fbc6e727ffd994a707433
+git reset --soft HEAD~1
+git diff
+git reset --hard
+git branch feature/new_file
+git branch -m feature/new_file_text
+git branch -d feature/new_file_text
+git branch -D feature/new_file_text
+git merge feature/file_xpto
+git branch -d feature/file_xpto
+git checkout -b feature/file_rebase
+git rebase feature/file_rebase
+git tag
+git tag -a v2.0 -m "Version 2.0"
+git tag -a v1.0 -m "Version 1.0" 6aa5c9df83d245866014f3a3eb4f29d2efc3d70d
+git tag -d v2.0
+git remote add origin git@github.com:CarlosChiarelli/repo_devops_pro.git\ngit branch -M main\ngit push -u origin main
+git push
+git push --set-upstream origin newbranch
+git pull
+git merge newbranch
+git config pull.rebase false
+git config --global core.editor "vim"\n
+git fetch origin
+git branch -r
+git checkout origin/main
+git diff main origin/main
+git branch
+git merge origin/main
+git log arquivo.txt
+git log --oneline
+git log --stat
+git log -p
+git log --graph
+git log --graph --oneline
