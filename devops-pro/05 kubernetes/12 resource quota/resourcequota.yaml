@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-resource
+spec:
+  hard: # total de valores de recurso em cada pod
+    requests.cpu: "3000m"
+    requests.memory: "4Gi"
+    limits.cpu: "6"           # posso ter no máximo 3 cpu e 6Gi somando todos containers
+    limits.memory: "6Gi"
