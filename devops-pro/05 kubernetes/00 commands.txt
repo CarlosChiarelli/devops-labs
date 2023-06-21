@@ -1,0 +1,169 @@
+sudo snap install multipass
+multipass
+multipass launch -n k8s -c 2 -m 2gb -d 20gb
+multipass list
+multipass shell k8s
+multipass exec k8s -- cat teste.txt
+multipass info k8s
+multipass delete k8s
+multipass recover k8s
+multipass start k8s
+multipass purge
+multipass launch -n k8s -c 2 -m 4G -d 20G
+multipass exec k8s -- sudo snap install microk8s --classic --channel=1.18/stable
+multipass exec k8s -- sudo usermod -a -G microk8s ubuntu
+multipass exec k8s -- sudo chown -f -R ubuntu ~/.kube
+multipass restart k8s
+multipass exec k8s -- /snap/bin/microk8s.kubectl create deployment nginx --image=nginx
+multipass exec k8s -- /snap/bin/microk8s.kubectl get pods
+multipass exec k8s -- /snap/bin/microk8s.kubectl config view --raw
+kubectl get pods
+kubectl get nodes
+kubectl get all
+multipass launch -n k8s -c 2 -m 2G -d 20G
+multipass launch -n k8s2 -c 2 -m 2G -d 20G
+history | grep 1..18
+history | grep 1.18
+multipass exec k8s2 -- sudo snap install microk8s --classic --channel=1.18/stable
+history | grep usermod
+multipass exec k8s2 -- sudo usermod -a -G microk8s ubuntu
+history | grep .kube
+multipass exec k8s2 -- sudo chown -f -R ubuntu ~/.kube
+multipass restart k8s2
+multipass shell k8s2
+# For AMD64 / x86_64\n[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64\n# For ARM64\n[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-arm64\nchmod +x ./kind\nsudo mv ./kind /usr/local/bin/kind
+kind
+kind create cluster
+multipass delete k8s2
+kubectl create deployment nginx --image==nginx
+kubectl create deployment nginx --image=nginx
+kubectl port-forward pod/nginx-77b4fdf86c-p98md 8080:80
+kind create cluster --name meucluster
+kind get clusters
+kind delete cluster
+kind delete cluster --name meucluster
+kind create cluster --config ./cluster-one-control-plane.yaml --name multinodes
+kubectl delete multinodes
+kind delete multinodes
+kind delete cluster multinodes
+history | grep delete
+kind delete cluster --name multinodes
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+az login
+kubectl api-resources
+kind create cluster --config ./01\ cluster-one-control-plane.yaml --name multinodes
+kubectl apply -f meuprimeiropod.yaml
+kubectl describe pod meuprimeiropod
+kubectl port-forward pod/meuprimeiropod 8080:80
+kubectl apply -f 03\ meupodazul.yaml -f 04\ meupodverde.yaml
+kubectl delete pod/meuprimeiropod
+kubectl get pods -l versao=verde
+kubectl get pods -l app=nginx
+kubectl get pods -l app=naginx
+kubectl delete pod -l versao=azul
+kubectl apply -f 05\ meuprimeiroreplicaset.yaml
+watch 'kubectl get all'
+kubectl port-forward pod/meuprimeiroreplicaset-n428g 8080:80
+kubectl delete pod/meuprimeiroreplicaset-n428g
+kubectl scale replicaset meureplicaset --replicas=15
+kubectl scale replicaset meuprimeiroreplicaset --replicas=15
+kubectl scale replicaset meuprimeiroreplicaset --replicas=2
+kubectl apply -f 06\ meuprimeirodeployment.yaml
+kubectl delete replicaset.apps/meuprimeiroreplicaset
+kubectl delete pod/meupodverde
+kubectl port-forward pod/meuprimeirodeployment-78f7d4f856-ptcs8 8080:80
+kubectl get pods -o wide
+kubectl scale deployment.apps/meuprimeirodeployment --replicas=10
+kubectl port-forward pod/meuprimeirodeployment-6b9c9d9cff-5hqm9 8080:80
+kubectl rollout history deplyment meuprimeirodeployment
+kubectl rollout history deployment meuprimeirodeployment
+kubectl rollout undo deployment meuprimeirodeployment
+kubectl port-forward pod/meuprimeirodeployment-78f7d4f856-47x8x 8080:80
+cd 07\ service
+kubectl delete deployment.apps/meuprimeirodeployment
+kubectl apply -f deployment.yaml
+kubectl run -i --tty --image kubedevio/ubuntu-curl ping-test --restart=Never --rm -- /bin/bash
+kubectl apply -f service.yaml
+docker container run --rm kubedevio/ubuntu-curl curl http://10.96.43.161:30222/temperatura/fahrenheitparacelsius/200
+curl http://10.96.43.161:30222/temperatura/fahrenheitparacelsius/200
+doctl compute droplet list\n
+curl http://10.116.0.0:31205/temperatura/fahrenheitparacelsius/200
+curl http://10.116.0.0/20:31205/temperatura/fahrenheitparacelsius/200
+kubectl get nodes -o wide\n
+curl http://157.230.54.191:31205/temperatura/fahrenheitparacelsius/200
+kubectl apply -f service\ 3\ loadbalancer.yaml
+curl http://146.190.186.105/temperatura/fahrenheitparacelsius/200
+cd ..
+ls
+kind start cluster multinodes
+kubectl get endpoints
+kubectl get namespace
+kubectl delete deployment.apps/api
+kubectl delete service/api-service
+cd 08\ namespace
+kubectl apply -f deployblue.yaml -f deploygreen.yaml
+kubectl create namespace blue
+kubectl create namespace green
+kubectl delete -f .
+kubectl apply -f deployblue.yaml -n blue
+kubectl get deploy -n blue
+kubectl get deploy --all-namespaces
+watch 'kubectl get all --all-namespaces'
+kubectl apply -f service.yaml -n blue
+kubectl apply -f service.yaml -n green
+kubectl get services --all-namespace
+kubectl get services --all-namespaces
+kubectl apply -f deploygreen.yaml -n green
+kubectl get pods -o wide --all-namespaces
+kubectl api-resources --namespaced=true
+kubectl api-resources --namespaced=false
+cd ../09\ deploy\ app
+git clone https://github.com/KubeDev/pedelogo-catalogo.git
+rm -rf pedelogo-catalogo/.git
+cd pedelogo-catalogo
+cd src
+ls ..
+cd PedeLogo.Catalogo.Api
+docker build -f auctus/pedelogo-catalogo:v1.0.0 .
+docker build -f auctus/pedelogo-catalogo:v1.0.0 ./pedelogo-catalogo/src/PedeLogo.Catalogo.Api/Dockerfile ./pedelogo-catalogo
+docker build -t auctus/pedelogo-catalogo:v1.0.0 -f ./pedelogo-catalogo/src/PedeLogo.Catalogo.Api/Dockerfile ./pedelogo-catalogo
+docker login
+docker push auctus/pedelogo-catalogo:v1.0.0
+kubectl get all --all-namespaces
+kubectl delete deployment.apps/deploy-nginx-color deployment.apps/deploy-nginx-color
+kubectl delete deploy deployment.apps/deploy-nginx-color deployment.apps/deploy-nginx-color
+kubectl delete deploy deployment.apps/deploy-nginx-color
+kubectl delete deploy deployment.apps/deploy-nginx-color --namespace=blue
+kubectl delete deploy deployment.apps/deploy-nginx-color -namespace=blue
+kubectl delete deploy deployment.apps/deploy-nginx-color --namespace=green
+kubectl delete deploy deployment.apps/deploy-nginx-color --namespace green
+kubectl delete deploy deployment.apps/deploy-nginx-color --namespace blue
+kubectl delete deployment deployment.apps/deploy-nginx-color --namespace blue
+kubectl delete deployment deploy-nginx-color --namespace blue
+kubectl delete deployment deploy-nginx-color --namespace green
+kubectl apply -f pedelogo-catalogo/k8s/deployment.yaml
+kubectl apply -f pedelogo-catalogo/k8s/service.yaml
+kubectl apply -f pedelogo-catalogo/k8s/api/deployment.yaml
+kubectl apply -f pedelogo-catalogo/k8s/api/service.yaml
+kubectl apply -f pedelogo-catalogo/k8s/mongodb/mongodb-configmap.yaml
+kubectl get configmap
+kubectl describe configmap mongodb-configmap
+kubectl apply -f pedelogo-catalogo/k8s/mongodb/
+kubectl apply -f pedelogo-catalogo/k8s/api
+kubectl apply -f pedelogo-catalogo/k8s/api/api-configmap.yaml
+echo -n "mongouser" | base64
+echo -n "mongopwd" | base64
+kubectl apply -f pedelogo-catalogo/k8s/mongodb/mongodb-secret.yaml
+kubectl get secrets
+kubectl delete configmap mongodb-confimap
+kubectl delete configmap mongodb-configmap
+kubectl apply -f pedelogo-catalogo/k8s/mongodb/deployment.yaml
+kubectl create configmap literal-configmap --from-literal=Mongo__Host=mongo-service
+kubectl create secret generic literal-secret --from-literal=MONGO_PWD=mongopwd
+cd k8s
+kubectl apply -f ./ -R
+kubectl apply -f api/deployment.yaml
+kubectl describe pods pod/api-deployment-76b69b8845-bs2kz
+kubectl describe pod pod/api-deployment-76b69b8845-bs2kz
+kubectl describe pod/api-deployment-76b69b8845-bs2kz
+history | grep history
