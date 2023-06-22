@@ -166,4 +166,103 @@ kubectl apply -f api/deployment.yaml
 kubectl describe pods pod/api-deployment-76b69b8845-bs2kz
 kubectl describe pod pod/api-deployment-76b69b8845-bs2kz
 kubectl describe pod/api-deployment-76b69b8845-bs2kz
-history | grep history
+cd 10\ resource\ request\ e\ resource\ limits
+kubectl apply -f deployment-resource.yaml
+kubectl describe pod/resource-container-5ff4c64c4b-5s9lk
+kubectl top pod/resource-container-665b9d9bd4-s886f
+kubectl top pod pod/resource-container-665b9d9bd4-s886f
+kubectl top pod resource-container-665b9d9bd4-s886f
+kubectl top nodes
+kubectl top -h
+kubectl top pod
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+k -n kube-system get pods
+kubectl -n kube-system get pods
+kubectl -n kube-system edit deploy metrics-server
+kubectl top node
+kubectl top pods
+kubectl top pods --containers
+curl --data "megabytes=20&durationSec=30" http://146.190.185.107/consumeMem
+curl --data "megabytes=20&durationSec=30" http://146.190.185.107/ConsumeMem
+curl --data "millicores=130&durationSec=30" http://146.190.185.107/ConsumeCPU
+curl --data "megabytes=80&durationSec=30" http://146.190.185.107/ConsumeMem
+watch 'kubectl top pods'
+curl --data "megabytes=64&durationSec=30" http://146.190.185.107/ConsumeMem
+curl --data "megabytes=59&durationSec=30" http://146.190.185.107/ConsumeMem
+curl --data "megabytes=50&durationSec=30" http://146.190.185.107/ConsumeMem
+kubectl apply -f hpa.yaml
+kubectl get hpa
+curl --data "millicores=130&durationSec=120" http://146.190.185.107/ConsumeCPU
+cd 09\ deploy\ app
+kubectl apply -f pedelogo-catalogo/k8s/.
+kubectl apply -f pedelogo-catalogo/k8s/
+kubectl apply -f pedelogo-catalogo/k8s/mongodb
+cd ../11\ limit\ range
+kubectl delete deployments --all\n
+kubectl delete replicasets --all\n
+kubect delete -f ./deployment.yaml
+kubectl delete -f ./deployment.yaml
+kubectl apply -f limitrange.yaml
+kubectl describe pod/nginx-55f598f8d-lhmhx
+cd ../
+cd 12\ resource\ quota
+kubectl apply -f resourcequota.yaml
+kubectl delete -f ./resourcequota.yaml
+kubectl delete horizontalpodautoscaler.autoscaling/hpa-deploy
+kubectl describe replicaset.apps/nginx-5f877b88
+kubectl apply -f resourcequota-obj.yaml
+kubectl delete deployments
+10898!
+cd ../13\ ciclo\ vida\ pod
+cd ../09\ deploy\ app/pedelogo-catalogo/k8s
+kubectl apply -f api/
+kubectl logs pod/api-deployment-69db8599bd-vhrms
+kubectl logs pod/api-deployment-69db8599bd-vhrms -c init-pod
+kubectl apply -f mongodb
+kubectl logs pod/mongodb-deployment-5dd7b5676c-svwcs
+kubectl logs deployment.apps/mongodb-deployment
+kubectl logs replicaset.apps/mongodb-deployment-5dd7b5676c
+kubectl describe rs replicaset.apps/mongodb-deployment-5dd7b5676c
+kubectl describe rs mongodb-deployment-5dd7b5676c
+kubectl delete deployment.apps/mongodb-deployment
+kubectl apply -f mongodb/
+kubectl describe deploy deployment.apps/mongodb-deployment
+kubectl describe deploy mongodb-deployment
+kubectl describe rs mongodb-deployment-6fc964c547
+kubectl logs pod mongodb-deployment-6fc964c547-mf55f
+kubectl logs pod/mongodb-deployment-6fc964c547-mf55f
+apiVersion: apps/v1\nkind: Deployment\nmetadata:\n name: mongodb-deployment\nspec:\n selector:\n matchLabels:\n app: mongodb\n template:\n metadata:\n labels:\n app: mongodb\n spec:\n containers:\n - name: mongodb-container\n image: mongo:4.2.8\n ports:\n - containerPort: 27017\n resources:\n requests:\n memory: 256Mi\n cpu: 1000m\n limits:\n memory: 256Mi\n cpu: 1000m \n envFrom:\n - secretRef:\n name: mongodb-secret\n
+kubectl describe nodes
+kubectl apply -f mongodb/mongodb-pv.yaml
+kubectl get pv
+kubectl apply -f mongodb/mongodb-pvc.yaml
+kubectl get pvc
+kubectl apply -f mongodb/deployment.yaml
+kubectl delete pod/mongodb-deployment-5895d468f6-r8xzc
+kubectl get storageclass
+kubectl apply -f mongodb/mongodb-pvc-scw.yaml
+kubectl delete pod/mongodb-deployment-bbc6cc8ff-9m7p5
+history | grep 'kubectl delete deployment '
+kubectl delete deployment.apps/api-deployment
+cd ../../../14\ stateful
+kubectl apply -f nginx.yaml
+kubectl describe nginx-state
+kubectl describe stateful nginx-state
+kubectl describe statefulset nginx-state
+kubectl logs pod/nginx-state-0
+kubectl delete statefulset.apps/nginx-state
+kubectl delete service/nginx-state
+cd ../15\ daemonset
+kubectl apply -f prometheus-node.yaml
+docker container run kubedevio/roleta -w 5 -c 2 -m 5
+docker container run kubedevio/roleta:v1 -w 5 -c 2 -m 5
+docker container run kubedevio/roleta:latest -w 5 -c 2 -m 5
+docker container run kubedevio/roleta:latest -c 2 -m 5
+cd ../16\ job
+kubectl apply -f job.yaml
+kubectl logs pod/roleta-job-9972j
+kubectl logs pod/roleta-job-qrqfx
+kubectl describe job roleta-job
+kubectl delete job.batch/roleta-job
+kubectl apply -f cronjob.yaml
+kubectl delete cronjob.batch/roleta-job
