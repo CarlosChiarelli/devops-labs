@@ -266,3 +266,79 @@ kubectl describe job roleta-job
 kubectl delete job.batch/roleta-job
 kubectl apply -f cronjob.yaml
 kubectl delete cronjob.batch/roleta-job
+watch 'kubectl get all'
+kubectl apply -f ./k8s/mongodb
+kubectl apply -f ./k8s/api
+kubectl get pods -o wide
+pool-tmebwg26l-f5zhu
+kubectl get nodes
+kubectl label node pool-tmebwg26l-f5zh8 database=mongodb
+kubectl apply -f k8s/mongodb/deployment.yaml
+kubectl label node pool-tmebwg26l-f5zh8 database-
+ls
+kubectl apply -f k8s/api/deployment.yaml
+kubectl describe replicaset.apps/api-deployment-5748dc7687
+kubectl describe pod/api-deployment-5748dc7687-qrp74
+kubectl describe pod/api-deployment-75d8c6fff-8twkf
+kubectl describe pod/api-deployment-6d47f9c6dd-zfkph
+kubectl delete -f k8s/api/deployment.yaml
+cd ../18\ security
+kind cluster list
+kind get clusters\n
+kind delete cluster --name multinodes
+kind create cluster --name cluster-wavenet --config 00-kind.yaml
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+kind delete cluster --name cluster-wavenet
+kubectl apply -f 01-nginx.yaml
+kubectl describe deployment.apps/nginx
+kubectl describe replicaset.apps/nginx-5d8974d7bd
+kubectl describe pod/nginx-5d8974d7bd-mxfqw
+kubectl deletedeployment.apps/api-deployment
+kubectl delete deployment.apps/api-deployment
+kubectl delete deployment.apps/mongodb-deployment
+kubectl delete deployment.apps/nginx
+kubectl describe pod/nginx-5d8974d7bd-64q9z
+kubectl apply -f 01-nginx.yaml --force
+kubectl run -i --tty --image kubedevio/ubuntu-curl ping-test --restart=Never --rm -- /bin/bash
+kubectl apply -f 02-policy.yaml
+kubectl describe networkpolicy nginx-policy
+kubectl describe pod/nginx-6f46f64959-pg6zm
+kubectl run -i --tty --image kubedevio/ubuntu-curl ping-test --restart=Never --rm -- curl http://nginx
+kubectl run -i --tty -l --image kubedevio/ubuntu-curl ping-test --restart=Never --rm -- curl http://nginx
+kubectl run -i --tty -l app=ubuntu --image kubedevio/ubuntu-curl ping-test --restart=Never --rm -- curl http://nginx
+kubectl crate namespace curl
+kubectl create namespace curl
+kubectl run -i --tty -l app=ubuntu --image kubedevio/ubuntu-curl ping-test --restart=Never --rm -- curl http://nginx.default.svc.cluster.local
+kubectl run -i --tty -n curl -l app=ubuntu --image kubedevio/ubuntu-curl ping-test --restart=Never --rm -- curl http://nginx.default.svc.cluster.local
+kubectl apply -f 02-policy.yaml --force
+kubectl label namespace curl ns=nginx
+kubectl run -i --tty -n curl --image kubedevio/ubuntu-curl ping-test --restart=Never --rm -- curl http://nginx.default.svc.cluster.local
+cd 03
+cd ..
+cd 03\ service\ account\ rbac
+git clone https://github.com/KubeDev/k8s-dashboard-csharp.git
+rm -rf k8s-dashboard-csharp/.git
+cd k8s-dashboard-csharp
+rm -rf .github
+rm -rf .gitignore
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service
+kubectl apply -f k8s/service.yaml
+kubectl describe deployment.apps/k8s-dashboard-deploy
+kubectl describe replicaset.apps/k8s-dashboard-deploy-5c98c94675
+kubectl get secrets
+kubectl delete deployment.apps/k8s-dashboard-deploy
+kubectl describe replicaset.apps/k8s-dashboard-deploy-fc6cd5bff
+kubectl apply pod/k8s-dashboard-deploy-fc6cd5bff-xgt5c
+kubectl describe pod/k8s-dashboard-deploy-fc6cd5bff-xgt5c
+kubectl apply -f k8s/deployment.yaml --force
+kubectl describe pod/k8s-dashboard-deploy-5544d9b486-ljc6c
+kubectl delete deployment k8s-dashboard-deploy
+kubectl apply -f k8s/serviceaccount.yaml
+kubectl describe pod/k8s-dashboard-deploy-5c98c94675-pc6pg
+kubectl apply -f k8s/cluster-role.yaml
+kubectl get role
+kubectl get clusterole
+kubectl get clusterrole
+kubectl get clusterrole | grep dash
+kubectl apply -f k8s/cluster-role-binding.yaml
