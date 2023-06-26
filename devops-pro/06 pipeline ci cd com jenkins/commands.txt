@@ -1,0 +1,65 @@
+# install jenkins vm
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc &gt; /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list &gt; /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install default-jre-headless
+sudo apt-get remove --purge jenkins
+sudo apt-get clean
+sudo apt-get autoclean
+sudo systemctl status jenkins
+cat /var/lib/jenkins/secrets/initialAdminPassword
+htop
+exit
+docker --version
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+"$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+docker
+snap install docker
+sudo apt install docker.io
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+history
+history | awk '{ $1 = ""; print $0 }'\n
+#
+#
+ssh root@24.199.93.38
+ssh ubuntu@24.199.93.38
+ssht ubuntu@137.184.53.99
+ssh ubuntu@137.184.53.99
+ssh root@137.184.53.99
+cp ~/Downloads/kubernetes-cd.hpi .
+cd Projects/devops-labs/devops-pro/06\ pipeline\ ci\ cd\ com\ jenkins
+ls
+git clone https://github.com/CarlosChiarelli/pedelogo-catalogo.git
+cd pedelogo-catalogo
+rm -rf .git
+rm -rf .gitignore
+code ../05\ kubernetes
+docker logout\n
+docker login\n
+cd src
+cd PedeLogo.Catalogo.Api
+docker build -t 145869745236/api-produto:latest
+docker build -t 145869745236/api-produto:latest .
+cd ..
+docker build -t 145869745236/api-produto:versao-teste -f ./src/PedeLogo.Catalogo.Api/Dockerfile .
+docker push 145869745236/api-produto:versao-teste
+watch 'kubectl get all'\n
+kubectl apply -f k8s -R
+kubectl delete -f k8s -R
+cd ~/Projects
+code pedelogo-catalogo/.
+pwd
+kubectl describe pod/pedelogo-catalogo-8-p5wpc-blwhp-zcdr0
+kubectl top pods\n
+kubectl get pods -n kube-system | grep metrics-server\n
+wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml\n
+tree
+echo Analisando diretorio
