@@ -1,0 +1,17 @@
+api:
+  image: auctus/pedelogo-catalogo:v1.0.0
+  serviceType: ClusterIP
+ingress:
+  enabled: true
+  annotations: {}
+  hosts:
+    - host: chiarellidev.com
+      paths:
+        - /
+  tls: []
+mongodb:
+  tag: 4.2.8
+  credentials:
+    userName: mongouser
+    userPassword: mongopwd
+  databaseName: admin

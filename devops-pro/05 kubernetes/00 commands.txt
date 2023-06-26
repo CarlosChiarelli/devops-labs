@@ -342,3 +342,165 @@ kubectl get clusterole
 kubectl get clusterrole
 kubectl get clusterrole | grep dash
 kubectl apply -f k8s/cluster-role-binding.yaml
+k3d cluster create
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/baremetal/deploy.yaml
+kubectl get all -n ingress-nginx
+k3d cluster list
+k3d cluster delete k3s-default
+k3d cluster create -p "80:30000@loadbalancer"
+sudo lsof -i :80
+kill 1067
+sudo kill 1067
+sudo systemctl disable apache2\n
+wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/baremetal/deploy.yaml
+kubectl apply -f deploy.yaml
+kubectl apply -f ingress-nginx.yaml
+mv ~/Downloads/deployment.yaml .
+kubectl apply -f deployment.yaml
+kubectl apply -f 02-ingress.yaml
+kubectl get ingress
+kubectl get ingressclass
+kubectl delete -f 02-ingress.yaml
+kubectl delete deployment.apps/k8s-dashboard-deploy
+watch 'kubectl get all'
+kubectl delete service --all -n default\n
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/do/deploy.yaml
+watch 'kubectl get all -n ingress-nginx'
+kubectl get svc -n ingress-nginx
+ping chiarellidev.com
+ls
+kubectl apply -f 01-deployment.yaml
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg &gt; /dev/null\nsudo apt-get install apt-transport-https --yes\necho "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list\nsudo apt-get update\nsudo apt-get install helm
+helm repo add stable https://chartshelm.sh/stable
+helm repo add stable https://charts.helm.sh/stable
+helm repo update
+helm repo list
+helm repo add jenkins https://charts.jenkins.io
+helm repo remove jenkins
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm search repo ingress
+helm inspect all ingress-nginx/ingress-nginx
+helm inspect values ingress-nginx/ingress-nginx
+helm inspect values ingress-nginx/ingress-nginx &gt; values.yaml
+cd ../20\ helm
+cd ../19\ ingress\ controller
+kubectl delete 01-deployment.yaml
+kubectl delete if 01-deployment.yaml
+kubectl delete -f 01-deployment.yaml
+helm install meu-ingress-controller ingress-nginx/ingress-nginx
+kubectl config get-contexts
+kubectl cluster-info
+history
+kubectl get ingress --all
+kubectl get ingress -all
+kubectl get ingress all
+kubectl delete ingressclass nginx
+helm list
+helm uninstall meu-ingress-controller
+helmi list
+kubectl create namespace nginx-ingress
+helm install meu-ingress-controller ingress-nginx/ingress-nginx --namespace nginx-ingress
+helm list -n nginx-ingress
+watch 'kubectl get all -n nginx-ingress'
+helm upgrade meu-ingress-controller ingress-nginx/ingress-nginx --namespace nginx-ingress --values v
+helm upgrade meu-ingress-controller ingress-nginx/ingress-nginx --namespace nginx-ingress --values values.yaml
+helm history meu-ingress-controller -n nginx-ingress
+helm rollback meu-ingress-controller -n nginx-ingress
+helm upgrade meu-ingress-controller ingress-nginx/ingress-nginx --namespace nginx-ingress --set controller.replicaCount=2
+helm rollback meu-ingress-controller 2 -n nginx-ingress
+mv ~/Downloads/aula-helm.zip .
+unzip aula-helm.zip .
+unzip -e aula-helm.zip
+cd 01\ primeiro\ helm\ chart
+helm create api-produto
+helm install minhaapi ./api-produto --dry-run --debug
+helm install minhaapi ./api-produto --dry-run --debug &gt; teste.yaml
+helm uninstall meu-ingress-controller -n nginx-ingress
+helm install minhaapi api-produto
+kubectl describe deployment.apps/minhaapi-api-deployment
+kubectl describe replicaset.apps/minhaapi-api-deployment-7b569c588d
+kubectl describe pod/minhaapi-api-deployment-7b569c588d-4f7mx
+helm uninstall minhaapi
+helm install minhaapi api-produto --wait
+helm install minhaapi api-produto/ --wait
+helm install minhaapi api-produto/
+kubectl describe pod/minhaapi-api-deployment-6d4589fbd6-w9pwk
+kubectl describe rnetes/20 helm/01 primeiro helm chart on \M- main [?] took 2s \n❯ helm install minhaapi api-produto/
+kubectl describe pod/minhaapi-api-deployment-6d4589fbd6-phl88
+code Projects/devops-labs/devops-pro/05\ kubernetes/.
+cd 20\ helm
+cd 01\ primeiro\ helm\ chart/api-produto/templates
+cd ..
+helm upgrade minhaapi api-produto --dry-run --debug
+helm upgrade minhaapi api-produto
+kubectl describe pod/minhaapi-api-deployment-56ccdd7b7b-zxxhw
+kubectl delete pod/minhaapi-api-deployment-985f89bb7-l8r8h
+helm uninstall minhaapi api-produto
+kubectl describe pod/minhaapi-api-deployment-56ccdd7b7b-5k669
+kubectl delete pod/minhaapi-api-deployment-56ccdd7b7b-5k669
+ssh root@104.236.83.141
+KUBECTL GET INGRESS
+kubectl get namespace
+kubectl delete pods --all\n
+kubectl proxy | tee /home/carlos/.vscode/extensions/ms-kubernetes-tools.vscode-kubernetes-tools-1.3.13/dist/proxy.out
+cd .kube
+pwd
+d 21\ estrategias\ de\ deploy/01\ recreate
+cd 21\ estrategias\ de\ deploy/01\ recreate
+kubectl apply -f .
+kubectl apply -f deployment.yaml --force
+kubectl delete deployment.apps/api-versao
+cd 02\ ramped
+cd ../03\ blue\ green
+kubectl patch service api-versao-service -p '{"spec":{"selector":{"version":"v2"}}}'
+cd ../04\ canary
+cd ../../22\ traefik
+helm repo add traefik https://traefik.github.io/charts
+helm show values traefik/traefik
+helm show values traefik/traefik &gt; values.yaml
+kubectl delete deployment --all
+kubectl create namespace traefik-system
+helm upgrade --install traefik traefik/traefik --namespace=traefik-system
+watch 'kubectl get all -n traefik-system
+kubectl apply -f app
+watch 'kubectl get all -n traefik-system'
+kubectl port-forward service/nginx-service 8080:80
+kubectl delete service/nfinx-service
+kubectl describe deployment.apps/nginx
+kubectl describe pod/nginx-6df875878b-f6l7x
+kubectl delete deployment.apps/nginx
+kubectl apply -f pod/nginx-cdffcbc8b-xnrs8
+kubectl describe pod/nginx-cdffcbc8b-xnrs8
+kubectl delete all --all -n curl
+kubectl delete all --all -n nginx-ingress
+kubectl delete all --all -n ingress-nginx
+kubectl delete namespace curl
+kubectl delete namespace ingress-nginx
+kubectl delete namespace nginx-ingress
+kubectl describe pod/nginx-76485b86d6-pj2np
+kubectl api-resources
+kubectl applt app/ingressroute.yaml
+kubectl apply -f app/ingressroute.yaml
+kubectl get ingressroute
+kubectl describe d
+kubectl describe ingressroute
+kubectl apply -f app/middleware.yaml
+docker container run fortio/fortio load chiarelldev.com
+docker container run fortio/fortio load http://chiarelldev.com
+kubectl apply -f app/dashboard.yaml
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.0/cert-manager.yaml
+watch 'kubectl get all -n cert-manager'
+watch 'kubectl get all'\n
+cd ../23\ cert-manager
+kubectl apply -f app-exemplo.yaml
+kubectl apply -f ingress-route.yaml
+kubectl get all -n traefik-system
+kubectl apply -f issue-homolog.yaml
+kubectl get clusterissuer -n cert-manager
+kubectl apply -f issue-prod.yaml
+kubectl apply -f certificado.yaml
+kubectl get certificate
+kubectl describe certificate
+kubectl describe certificate letsencrypt-chiarellidev-cert
+kubectl apply -f ingress-route-tls.yaml
+history | grep history
