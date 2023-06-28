@@ -1,0 +1,95 @@
+cd 01\ docker
+docker-compose up -d
+docker compose down
+docker-compose up -d
+docker compose down
+cd ../02\ k8s
+code ..
+code ../.
+code ../..
+watch 'kubectl get all'
+k3d cluster list
+k3d cluster start k3s-default
+watch 'kubectl get all'
+kubectl delete deployment --all
+kubectl delete service/web-blue
+kubectl delete service/web-green
+kubectl delete service/nginx
+ls
+kubectl apply -f . -R
+kubectl port-forward service/api-service 80:80
+sudo kubectl port-forward service/api-service 80:80
+sudo kubectl port-forward service/api-service 8080:80
+sudo kubectl port-forward service/api-service 8080:8080
+kubectl get svc
+sudo kubectl port-forward service/api-service 8080:80\n
+netstat -tuln | grep :80\n
+sudo lsof -i :80\n
+ss -tuln | grep :80\n
+k3d cluster stop k3s-default
+kubectl apply -f . -R
+helm repo add grafana https://grafana.github.io/helm-charts\n
+helm repo update\n
+helm show values grafana/loki-stack
+helm show values grafana/loki-stack > values.yaml
+kubectl create namespace loki
+helm upgrade --install loki grafana/loki-stack
+helm list
+kubectl get pods -n loki
+helm uninstall --install loki grafana/loki-stack
+helm uninstall loki
+helm upgrade --install --namespace loki loki grafana/loki-stack
+kubectl get pods -n loki
+kubectl get all -n loki
+kubectl describe pod/loki-promtail-nrj2w -n loki
+kubectl port-forward pod/loki-promtail-nrj2w 8081:3101
+kubectl port-forward pod/loki-promtail-nrj2w 8081:3101 -n loki
+uname -m
+cd Downloads
+chmod +x logcli-linux-amd64\n
+sudo mv logcli-linux-amd64 /usr/local/bin/logcli\n
+logcli
+kubectl get all -n loki
+kubectl port-forward svc/loki -n loki 3100:3100
+logcli labels
+export LOKI_ADDR=http://<ip_cloud>
+export LOKI_USERNAME=
+logcli --username=
+logcli --password=
+logcli labels
+cp ~/Downloads/index.py .
+python3 index.py
+logcli lals
+logcli labels
+python3 index.py
+ls
+cd 02\ k8s
+python3 index.py
+logcli labels job
+logcli query '{job=default/api}'
+logcli query '{job="default/api"}'
+logcli query '{job!="default/api"}'
+logcli query '{job != "default/api"}'
+logcli query '{job = "default/api"}'
+logcli query '{job != "default/api"}'
+logcli query '{job ~= "default/api"}'
+logcli query '{job =~ "default/api"}'
+logcli query '{job = "default/api"}' | grep api
+logcli query '{job = "default/api"}'
+logcli query '{job =~ "default/api|default/mongodb"}'
+logcli query '{job =~ "default/api|default/mongodb"}' --limit=1000
+logcli labels job
+logcli query '{job =~ "kube-system/cilium-agent|default/mongodb"}' --limit=1000
+logcli query '{job = "default/api"} | logfmt'
+logcli query '{job = "default/api"} | logfmt | action="Get"'
+logcli query '{job = "default/api"} | action="Get"'
+logcli query '{job = "default/api"} |= action="Get"'
+logcli query '{job = "default/api"} |= "Get"'
+logcli query '{job = "default/api"} != "Get"'
+logcli query '{job = "default/api"} |~ "Get"'
+logcli query '{job = "default/api"} |~ "Get|Post"'
+logcli query '{job = "default/api"} !~ "Get|Post"'
+logcli query '{job = "default/api"} | logfmt | line_format "{{.action}} - {{.url}}"'
+logcli query '{job = "default/api"} | logfmt | action="Get" | line_format "{{.action}} - {{.url}}"'
+logcli query '{job = "default/api"} | logfmt | action="Get" or action="Post" | line_format "{{.action}} - {{.url}}"'
+logcli query '{job = "default/api"} | logfmt | action="Get" or action="Post" | line_format "{{.logLevel}} - {{.action}} - {{.url}}"'
