@@ -1,0 +1,60 @@
+docker-compose up -d
+docker compose down
+cd ../02\ k8s
+mv ~/Downloads/jaeger-deployment.yaml .
+kubectl apply -f jaeger-deployment.yaml
+cd ../03\ k8s\ helm
+kubectl delete -f ../02\ k8s/jaeger-deployment.yaml
+helm repo add jaegertracing https://jaegertracing.github.io/helm-charts\n
+helm repo update
+helm show values jaegertracing/jaeger > values.yaml
+helm show values jaegertracing/jaeger > values-jaeger.yaml
+helm install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch --namespace jaeger --create-namespace
+watch 'kubectl get all -n jaeger'
+helm list -n jaeger
+kubectl describe pod/elasticsearch-master-0
+kubectl describe pod/elasticsearch-master-0 -n jaeger
+helm uninstall jaeger
+helm uninstall jaeger jaegertracing/jaeger
+helm uninstall jaeger in jaeger
+helm uninstall jaeger n- jaeger
+helm uninstall jaegertracing/jaeger -n jaeger
+helm list
+helm list -n jaeger
+helm uninstall jaeger -n jaeger
+watch 'kubectl get all'
+kubectl delete service --all
+k3d cluster create --servers 3 --agents 4
+history | grep k3d cluster
+history | grep 'k3d cluster'
+k3d cluster create devops-rpo --servers 3 --agents 4
+watch 'kubectl get all'
+helm install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch --namespace jaeger --create-namespace
+helm list -n jeager
+watch 'kubectl get all -n jaeger'
+kubectl descrine pod/jaeger-query-66c6cbbddd-6jfbx -n jaeger
+kubectl describe pod/jaeger-query-66c6cbbddd-6jfbx -n jaeger
+helm list -n jaeger
+kubectl describe pod/jaeger-collector-6b4db548f7-vsf5h -n jaeger
+kubectl port-forward svc/jaeger-query 8080:16687 -n jaeger
+kubectl delete pod/jaeger-query-66c6cbbddd-6jfbx
+kubectl delete pod/jaeger-query-66c6cbbddd-6jfbx -n jaeger
+kubectl port-forward svc/jaeger-query 8080:16687 -n jaeger
+kubectl port-forward svc/jaeger-query 8080:80 -n jaeger
+kubectl get service jaeger-query -o yaml -n jaeger
+code Projects/cripto-bot/.
+source /home/carlos/Projects/cripto-bot/.venv/bin/activate
+pip freeze > requirements.txt
+cd 04\ opentracing
+git clone https://github.com/CarlosChiarelli/tracing-exemplo.git
+cd tracing-exemplo
+rm -rf .git
+ls
+docker-compose up -d
+helm uninstall jaeger -n jaeger
+k3d cluster stop k3d-devops-rpo
+history | grep 'k3d cluster'
+k3d cluster stop k3d-devops-rpo
+k3d cluster list
+k3d cluster stop devops-rpo
+docker compose down
