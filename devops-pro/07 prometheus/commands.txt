@@ -1,0 +1,175 @@
+k3d cluster list
+k3d cluster stop k3s-default
+docker-compose up -d
+docker logs e176c068ba07
+docker-compose up -d
+code ..
+cd 02\ k8s
+watch 'kubectl get all'\n
+ls
+kubectl apply -f . -R
+kubectl top pod --all-namespaces
+kubectl get deployment metrics-server -n kube-system\n
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml\n
+kubectl get deployment metrics-server -n kube-system\n
+kubectl top pod --all-namespaces
+kubectl get deployment metrics-server -n kube-system\n
+kubectl get pods -n kube-system | grep metrics-server\n
+kubectl describe metrics-server-7b4c4d4bfd-4d5qd
+kubectl describe pod metrics-server-7b4c4d4bfd-4d5qd
+kubectl describe pods/metrics-server-7b4c4d4bfd-4d5qd
+kubectl describe pod/metrics-server-7b4c4d4bfd-4d5qd
+kubectl get pods -n kube-system | grep metrics-server\n
+kubectl describe nodes
+kubectl get pods -n kube-system | grep metrics-server\n
+kubectl get pods -n kube-system\n
+kubectl describe pods pod/metrics-server-7b4c4d4bfd-4d5qd
+kubectl describe pods pods/metrics-server-7b4c4d4bfd-4d5qd
+kubectl describe pod/metrics-server-7b4c4d4bfd-4d5qd
+kubectl logs metrics-server-7b4c4d4bfd-4d5qd -n kube-system
+kubectl describe pod metrics-server-7b4c4d4bfd-4d5qd -n kube-system\n
+watch 'kubectl get all'\n
+\n
+kubectl apply -f . -R
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml\n
+kubectl get deployment metrics-server -n kube-system\n
+watch 'kubectl get deployment metrics-server -n kube-system'\n
+exit
+kubectl describe nodes
+kubectl top pod --all-namespaces
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts\n
+helm repo update\n
+helm repo list
+helm search repo prometheus
+helm inspect values prometheus-community/prometheus
+helm inspect values prometheus-community/prometheus > values.yaml
+kubectl create namespace prometheus
+helm upgrade --install prometheus prometheus-community/prometheus --values . values.yaml
+helm upgrade --install prometheus prometheus-community/prometheus --values . values.yaml --namespace prometheus
+helm upgrade prometheus prometheus-community/prometheus --values values.yaml --namespace prometheus\n
+helm install prometheus prometheus-community/prometheus --values values.yaml --namespace prometheus\n
+kubectl get pods -n prometheus
+kubectl get service -n prometheus
+watch 'kubectl get service -n prometheus'
+kubectl apply -f api/deployment.yaml
+kubectl apply -f mongodb/deployment.yaml
+kubectl describe nodes
+kubectl top pods --all-namespaces\n
+kubectl describe nodes
+cd ../01\ docker
+docker-compose up -d
+while true; do curl http://localhost:8080/produto; sleep 1; done;
+docker-compose down
+cd ../02\ k8s
+cd ../03\ k8s\ alertmanager
+kubectl repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics
+helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics
+helm repo update
+helm show values prometheus-comunity/prometheus > values.yaml
+helm show values prometheus-community/prometheus > values.yaml
+kubectl delete deployment --all
+kubectl get namespace
+kubectl get all -n prometheus
+kubectl delete namespace prometheus
+kubectl get all
+kubectl get namespace
+kubectl apply app -R
+kubectl apply -r app/ -R
+kubectl apply -f app/ -R
+kubectl create namespace monitoramento
+helm install prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+kubectl delete clusterrole prometheus-kube-state-metrics\n
+helm install prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+kubectl delete clusterrole prometheus-server\n
+helm install prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+helm uninstall prometheus prometheus-community/prometheus
+kubectl delete clusterrole prometheus-server\n
+helm install prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+kubectl delete clusterrolebinding prometheus-kube-state-metrics\n
+helm install prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+kubectl delete clusterrolebinding prometheus-server\n
+helm install prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+kubectl get all -n monitoramento
+helm upgrade prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+kubectl get all -n monitoramento
+watch 'kubectl get all'
+ipython
+python3
+~/.pyenv/versions/3.9.6/bin/python3.9 -m venv .venv
+source .venv/bin/activate
+pip install ipython
+which python
+pip install yaml
+ipython
+pip install PyYAML
+ipython
+helm upgrade prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+cd 03\ k8s\ alertmanager
+helm upgrade prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+kubectl get all -n monitoramento
+rm -rf .venv
+~/.pyenv/versions/3.9.6/bin/python3.9 -m venv .venv
+source .venv/bin/activate
+pip install ipython
+ipython
+pip install PyYAML
+ipython
+helm upgrade prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+cd 03\ k8s\ alertmanager
+helm upgrade prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+helm list
+helm repo list
+helm search repo prometheus-community --versions
+helm list prometheus-community --short
+helm list
+helm repo list
+helm show chart prometheus-community/prometheus | grep -e "^version:"\n
+helm search repo prometheus-community --versions | grep prometheus-community/prometheus
+helm search repo prometheus-community --versions | grep prometheus-community/prometheus
+helm search repo prometheus-community --versions | grep '^prometheus-community/prometheus\b'
+helm search repo prometheus-community --versions | grep '^prometheus-community/prometheus\b' > aux.txt
+helm show chart prometheus-community/prometheus | grep -e "^version:"\n
+history | grep prometheus-community/prometheus
+helm inspect values prometheus-community/prometheus --version 13.6.0 > values2.yaml
+helm repo list
+helm uinstall prometheus prometheus-community/prometheus --namespace=monitoramento
+helm uninstall prometheus prometheus-community/prometheus --namespace=monitoramento
+mv values2.yaml values.yaml
+kubectl get all -n monitoramento
+helm install prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+kubectl get all -n monitoramento
+helm upgrade prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+kubectl get all -n monitoramento
+helm upgrade prometheus prometheus-community/prometheus --namespace=monitoramento --values values.yaml
+watch 'kubectl get all -n monitoramento'
+kubectl describe pod/prometheus-server-7b7f44b6bd-7pnbx
+kubectl describe pod pod/prometheus-server-7b7f44b6bd-7pnbx
+kubectl describe pods pod/prometheus-server-7b7f44b6bd-7pnbx
+kubectl delete pod/prometheus-server-7b7f44b6bd-7pnbx
+kubectl delete pod prometheus-server-7b7f44b6bd-7pnbx
+kubectl describe pod/prometheus-server-7b7f44b6bd-7pnbx -n monitoramento
+kubectl delete pod/prometheus-server-7b7f44b6bd-7pnbx -n monitoramento
+kubectl apply -f app/ -R
+kubectl get all
+kubectl delete pod/prometheus-server-7b7f44b6bd-h7nfj -n monitoramento
+kubectl describe pod/prometheus-server-7b7f44b6bd-bfqkn -n monitoramento
+watch 'kubectl describe pod/prometheus-server-7b7f44b6bd-bfqkn -n monitoramento'
+kubectl describe pod/prometheus-server-7b7f44b6bd-bfqkn -n monitoramento
+rm -rf .venv
+cd ../01\ docker
+docker compose up -d
+docker compose down
+docker compose up -d
+docker compose down
+docker compose up -d
+docker compose down
+docker compose up -d
+kubectl describe pod/prometheus-server-7b7f44b6bd-bfqkn -n monitoramento
+docker compose up -d
+docker compose down
+docker compose up -d
+docker compose down
+docker compose up -d
+docker compose down
+docker compose up -d
+while true; do curl http://localhost:8080/produto; sleep 1; done;
