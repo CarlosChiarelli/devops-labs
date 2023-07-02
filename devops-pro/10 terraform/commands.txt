@@ -1,0 +1,302 @@
+ssh root@143.198.231.231 -i ~/.ssh/id_rsa
+cd 01\ hands\ on
+terraform init
+terraform fmt
+terraform validate
+terraform plan
+terraform apply
+terraform apply --auto-approv
+terraform apply --auto-approve
+terraform apply
+ssh root@165.227.110.83 -i ~/.ssh/id_rsa
+terraform apply
+ssh root@165.227.110.83 -i ~/.ssh/id_rsa
+terraform apply
+export TG_VAR_do_token="dop_v1_4d4605de5f792cd3c63b71689ee4c5b53bfd22aac1e51de9d55db7a8d07a112b"
+terraform apply
+export TF_VAR_do_token="dop_v1_4d4605de5f792cd3c63b71689ee4c5b53bfd22aac1e51de9d55db7a8d07a112b"
+terraform apply
+terraform fmt
+terraform apply
+terraform output
+terraform destroy
+terraform apply
+ssh root@45.55.64.39 -i ~/.ssh/id_rsa
+terraform destroy
+cd ../02\ variables
+terraform init
+terraform apply
+terraform apply --auto-approve
+terraform fmt
+terraform apply --auto-approve
+cd ../02\ variables\ 2
+mv ~/Downloads/main.tf .
+terraform apply
+terraform init
+terraform apply
+export TF_VAR_conteudo_string="teste variavel ambiente"
+export TF_VAR_lista_nomes='["Maquina01", "Maquina02", "Maquina03", "Maquina03"]'
+terraform apply --auto-approve
+env | grep TF_VAR
+cd ../03\ resource\ meta\ arguments
+terraform init
+terraform apply --auto-approve
+terraform destroy
+terraform destroy -auto-approve
+terraform destroy --auto-approve
+terraform apply --auto-approve
+cd ../04\ hands\ on
+mv ~/Downloads/start.zip .
+unzip -e start.zip
+rm start.zip
+terraform init
+terraform apply --auto-approve
+terraform fmt
+terraform plan
+terraform validate
+terraform fmt
+terraform plan
+terraform apply --auto-approve
+terraform destroy --auto-approve
+mv ~/Downloads/main.tf .
+terraform apply --auto-approve
+terraform plan
+terraform apply
+cd 05\ prvisioners
+ssh root@161.35.115.174 -i ~/.ssh/id_rsa
+terraform destroy --auto-approve
+mv ~/Downloads/main.tf .
+cd ../06\ hands\ on
+export TF_VAR_do_token="dop_v1_8782f9bf9aa5086fd68b7b3a06af68adce085057478a9fe23a18535bc1927da7"
+ls ~/.ssh
+terraform init
+terraform console
+terraform fmt
+terraform validate
+terraform plan
+terraform apply
+export TF_VAR_do_token="dop_v1_8782f9bf9aa5086fd68b7b3a06af68adce085057478a9fe23a18535bc1927da7"
+terraform apply
+terraform apply --auto-approve
+ssh root@161.35.13.110 -i ~/.ssh/terraform
+terraform output
+terraform destroy --auto-approve
+cd ../07\ modules
+code Projects/devops-labs/devops-pro/10\ terraform/.
+cd 01
+mv ~/Downloads/main.tf .
+terraform init
+terraform apply --auto-approve
+terraform destroy
+terraform init
+terraform apply --auto-approve
+terraform init
+terraform apply --auto-approve
+terraform init
+terraform apply --auto-approve
+terraform destroy --auto-approve
+terraform apply --auto-approve
+terraform destroy --auto-approve
+terraform apply --auto-approve
+terraform init
+terraform apply --auto-approve
+terraform init
+terraform apply --auto-approve
+terraform init
+terraform apply --auto-approve
+cd ../02\ hands\ on
+mv ~/Downloads/hands-on-04.zip .
+unzip -e hands-on.zip
+unzip -e hands-on-04.zip
+terraform init
+terraform console
+terraform plan
+export TF_VAR_do_token="dop_v1_b1bd33bb996572d53742127b92cfe4b7523cb60d38665bb2961b58f16accbb00"
+terraform apply
+terraform output wp_db_pwd
+terraform destroy
+terraform init
+terraform apply
+terraform destroy
+cd modules/do-wp-stack
+git init
+ls -a
+git add .
+git commit -m "first commit"
+git log
+git remote add origin https://github.com/CarlosChiarelli/terraform-digitalocean-wp-do.git
+git branch -M main
+git push -u origin main
+git tag v1.0.0
+git push --tags
+cd ..
+ls
+cd ..
+ls
+cd ~/Projects/devops-labs/devops-pro/10\ terraform/07\ modules/02\ hands\ on
+terraform init
+terraform plan
+terraform destroy
+terraform apply --auto-approve
+terraform destroy --auto-approve
+cd 08\ estado/01
+mv ~/Downloads/main.tf .
+terraform init
+terraform apply --auto-approve
+terraform state list
+terraform state list local_file.arquivo
+terraform state list -id=b8b8eaa6605bca8dda045631df4e83c8df77bcc7
+terraform show
+terraform show --json
+terraform state list
+terrafor state show local_file.arquivo[2]
+terraform state show local_file.arquivo[2]
+terraform state show random_pet.pets[0]
+terraform graph
+terraform graph | dot -Tsvg > imagem.svg
+sudo apt install graphviz\n
+terraform graph | dot -Tsvg > imagem.svg
+terraform state list
+terraform taint random_pet.pets[1]
+terraform taint random_pet.pets[1]'
+terraform taint 'random_pet.pets[1]'
+terraform apply
+terraform untaint 'random_pet.pets[1]'
+terraform untaint random_pet.pets[1]
+terraform taint 'random_pet.pets[1]'
+terraform untaint 'random_pet.pets[1]'
+terraform apply -replace='random_pet.pets[1]'
+terraform apply -replace='random_pet.pets[1]' -replace='random_pet.pets[2]'
+cd ..
+cd 02\ move
+mv ~/Downloads/main.tf .
+terraform init
+terraform apply --auto-approve
+terraform apply
+terraform state mv "random_pet.pet" "random_pet.pet[0]"
+terraform apply
+terraform init
+terraform apply
+terraform state mv local_file.arquivo module.arquivo_pet.arquivo
+terraform state mv local_file.arquivo module.arquivo_pet.local_file.arquivo
+terraform state mv local_file.arquivo module.arquivo_pet.pet
+terraform state mv random_pet.pet module.arquivo_pet.random_pet.pet
+terraform apply
+ssh root@104.236.83.141
+terraform apply
+terraform state rm
+cd 08\ estado/03\ backend\ local
+mv ~/Downloads/main.tf .
+terraform init
+terraform apply --auto-approve
+terraform init -migrate -state
+terraform init -migrate-state
+terraform destroy --auto-approve
+terraform init -migrate-state
+terraform init
+terraform init -migrate-state
+terraform apply --auto-approve
+terraform destroy
+watch 'kubectl get all -n jaeger'
+watch 'kubectl get all'
+kubectl cluster-info
+kubectl get secrets
+cd ../04\ backend\ k8s
+terraform init
+terraform apply
+kubectl get secrets
+terraform init -backend-config="secret_suffix=estado" -backend-config="config_path=~/.kube/config"
+terraform apply
+terraform init -backend-config="secret_suffix=estado" -backend-config="config_path=~/.kube/config"
+terraform apply
+export KUBE_CONFIG_PATH="~/.kube/config"
+terraform init -backend-config="secret_suffix=estado"
+terraform init -backend-config="secret_suffix=estado" -migrate-state
+terraform apply
+cd ../05\ workspace
+mv ~/Downloads/main.tf .
+terraform workspace show
+terraform workspace new dev
+terraform workspace new homolog
+terraform workspace new prod
+terraform workspace show
+terraform workspace list
+terraform workspace select dev
+terraform workspace show
+terraform workspace delete dev
+terraform workspace delete prod
+terraform workspace list
+terraform workspace new prod
+terraform workspace list
+terraform workspace select dev
+terraform init
+terraform apply -var-file=dev.tfvars
+terraform workspace select homolog
+terraform apply -var-file=homolog.tfvars
+terraform workspace select prod
+terraform apply -var-file=prod.tfvars
+terraform workspace list
+terraform apply -var-file=prod.tfvars
+cd ../../09\ hands\ on
+terraform worspace show
+terraform workspace show
+terraform workspace new producao
+terraform workspace show
+terraform workspace new homologacao
+terraform workspace new desenvolvimento
+terraform workspace list
+terraform workspace select producao
+terraform workspace list
+export TF_VAR_do_token="dop_v1_25b3fb9a53f9fecb6c60b83286278c541ced0724dfa1d7f7195ade5c28d217f0"
+terraform init
+terraform apply
+terraform state list
+terraform state show
+terraform state show data.digitalocean_kubernetes_cluster.k8s-1-27-2-do-0-ams3-devops-pro
+terraform state show data.digitalocean_kubernetes_cluster.k8s
+terraform state show data.digitalocean_kubernetes_cluster.k8s | grep version
+terraform state show data.digitalocean_kubernetes_cluster.k8s | grep region
+terraform fmt
+terraform state list
+terraform import data.digitalocean_kubernetes_cluster.k8s 5514e28c-60db-4531-817b-d7b918f88ca6
+terraform import digitalocean_kubernetes_cluster.k8s 5514e28c-60db-4531-817b-d7b918f88ca6
+terraform plan
+terraform fmt
+terraform plan -var-file=producao.tfvars
+terraform workspace select desenvolvimento
+terraform apply -var-file=producao.tfvars
+terraform apply -var-file=desenvolvimento.tfvars
+cd 09\ hands\ on
+terraform apply -var-file=homologacao.tfvars
+terraform workspace select producao
+terraform workspace select homologacao
+terraform apply -var-file=homologacao.tfvars
+terraform workspace new producao
+terraform workspace list
+terraform workspace select producao
+terraform workspace list
+terraform plan -var-file=producao.tfvars
+terraform workspace list
+terraform state list
+terraform destroy
+terraform workspace select homologacao
+terraform destroy
+terraform workspace select desenvolvimento
+terraform destroy
+code Projects/devops-labs/devops-pro/10\ terraform/.
+cd ../10\ terraform\ k8s
+cd 01\ helm
+terraform init
+terraform apply
+helm list
+watch 'kubectl get all'
+watch 'kubectl get all -n nginx-ingress'
+kubectl describe pod/nginx-ingress-nginx-controller-56c7c4f74f-2f5xc -n nginx-ingress
+terraform apply
+terraform init
+terraform apply
+terraform init
+cd 10\ terraform\ k8s/01\ helm
+terraform init
+terraform apply
+helm list -n nginx-ingress
