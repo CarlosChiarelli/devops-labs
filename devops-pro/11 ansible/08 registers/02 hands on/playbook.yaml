@@ -1,0 +1,37 @@
+---
+- name: Criação de Usuário
+  hosts: all
+  remote_user: root
+  vars:
+    senha: 123456
+    usuario: carloschiarelli
+  tasks:
+    - name: Instalação do pacote whois
+      ansible.builtin.apt:
+        name: whois
+        state: present
+        update_cache: true
+    - name: Gerar a senha criptografada
+      ansible.builtin.shell: "mkpasswd --method=sha-512 {{ senha }}"
+      register: cripto_pwd
+    - name: Verificar a senha
+      ansible.builtin.debug:
+        msg: "{{ cripto_pwd  }}"
+    - name: Criar o usuário no Linux
+      ansible.builtin.user:
+        name: "{{ usuario }}"
+        shell: /bin/bash
+        groups: sudo
+        append: yes
+        password: "{{ cripto_pwd.stdout }}"
+    - name: Criar o diretório SSH
+      ansible.builtin.file:
+        path: "/home/{{ usuario }}/.ssh"
+        state: directory
+        group: "{{ usuario }}"
+        owner: "{{ usuario }}"
+        recurse: true
+    - name: Copiando a chave SSH
+      ansible.builtin.copy:
+        src: /home/carlos/.ssh/id_rsa.pub
+        dest: "/home/{{ usuario }}/.ssh/authorized_keys"

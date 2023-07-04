@@ -1,0 +1,105 @@
+ansible
+ansible localhost -m ping
+cd 01\ ad-hoc
+ansible all -i '143.198.165.50,' -m ping
+ssh -i ~/.ssh/id_rsa root@143.198.165.50
+ansible all -i '143.198.165.50,' -m ping
+ansible all -i '143.198.165.50,' -m ping --private-key= ~/.ssh/
+ls ~/.ssh
+ansible all -i '143.198.165.50,' -m ping --private-key= ~/.ssh/id_rsa
+ansible all -i '143.198.165.50,' -m ping --private-key=~/.ssh/id_rsa
+ansible all -i '143.198.165.50,' -m ping --private-key=~/.ssh/id_rsa -u root
+ansible-config init
+ansible all -i '143.198.165.50,' -m ping
+cd ../02\ config
+ansible all -i '143.198.165.50,' -m ping
+ansible all -i '143.198.165.50,134.209.68.130,' -m ping
+ls ~/.ssh
+ansible all -i '143.198.165.50,134.209.68.130,' -m ping
+ansible all -i hosts --list-hosts
+ansible all -i hosts -m ping
+ansible ping -i hosts -m ping
+ansible all -i hosts -m ping
+cd ../03\ inventory
+ansible all -i hosts -m ping
+ansible ping -i hosts -m ping
+ansible ping -i hosts.yaml -m ping
+ansible ping -i arquivos -m ping
+cd ../04\ module
+ansible all -i hosts -m ping
+ansible all -i hosts -m reboot
+ansible all -i hosts -m copy -a "src=./arquivo.txt dest=/root/arquivo.txt"
+ssh -i ~/.ssh/id_rsa root@143.198.165.50
+ansible all -i hosts -m apt -a "name=nginx update_cache=yes"
+ssh -i ~/.ssh/id_rsa root@143.198.165.50
+ansible all -i hosts -m apt -a "name=curl state=absent"
+ansible all -i hosts -m service -a "name=nginx state=stopped"
+ssh -i ~/.ssh/id_rsa root@143.198.165.50
+ansible all -i hosts -m service -a "name=nginx state=started"
+cd ../05\ exemplo\ pratico
+ansible all -i hosts -m apt -a "name=nginx update_cache=yes"
+ssh -i ~/.ssh/id_rsa root@143.198.165.50
+ansible all -i hosts -m copy -a "src=./index dest=/var/www/html/index.nginx-debian.html"
+make stop
+code Projects/Pater/api-web-scraping/.
+make init
+source .venv/bin/activate
+ipython
+source /home/carlos/Projects/Pater/api-web-scraping/.venv/bin/activate
+python run/cities/curitiba.py > log_curitiba.txt
+code Projects/devops-labs/devops-pro/11\ ansible/.
+sudo cat /etc/ansible/ansible.cfg
+cd 06\ playbook
+ansible-playbook -i hosts playbook.yaml
+vim /etc/ansible/ansible.cfg
+sudo vim /etc/ansible/ansible.cfg
+ansible-playbook -i hosts playbook.yaml
+ansible-playbook -i hosts playbook.yaml --ask-become-pass
+mkpasswd --method=sha-512
+sudo apt install mkpasswd\n
+sudo apt install whois\n
+sudo apt install mkpasswd\n
+sudo apt update\n
+sudo apt install mkpasswd\n
+sudo apt-get update\nsudo apt-get install mkpasswd
+ansible-playbook -i hosts playbook.yaml --ask-become-pass
+cd ../07\ variaveis\ no\ playbook
+ansible-playbook playbook.yaml
+python run/cities/curitiba.py > log_curitiba.txt
+ansible-playbook playbook.yaml
+ansible-playbook playbook.yaml --extra-vars "nome=Pedro"
+ansible-playbook playbook.yaml --extra-vars "@vars.yaml"
+ansible-playbook playbook.yaml -i hosts playbook.yaml
+ansible-playbook -i hosts playbook.yaml
+cd ..
+cd 02\ config
+ansible-playbook -i hosts playbook.yaml
+cd ../
+cd 07\ variaveis\ no\ playbook/02
+ansible-playbook -i hosts playbook.yaml
+ssh -i ~/.ssh/id_rsa root@137.184.127.159
+ansible-playbook -i hosts playbook.yaml
+cat ~/.ssh/id_rsa.pub
+ssh -i ~/.ssh/id_rsa root@162.243.165.62
+ansible-playbook -i hosts playbook.yaml
+ssh -i ~/.ssh/id_rsa root@162.243.165.62
+ssh -i ~/.ssh/id_rsa root@206.81.0.94
+ssh -i ~/.ssh/id_rsa root@159.203.189.217
+cd ../
+cd 08\ registers
+ansible-playbook -i hosts playbook.yaml
+cd ../02\ config
+cd ../
+cd 08\ registers/02\ hands\ on
+ansible-playbook -i hosts playbook.yaml
+ssh -i ~/.ssh/id_rsa carloschiarelli@159.203.189.217
+cd ../03\ register\ em\ outros\ modulos
+ansible-playbook -i hosts playbook.yaml
+cd ../
+cd 09\ facts/01\ ad\ hoc
+ansible all -i hosts -m setup
+ansible all -i hosts -m setup -a "filter=ansible_eth*"
+cd ../02\ playbook
+ansible-playbook -i hosts playbook.yaml
+cd ..
+cd 10\ templates

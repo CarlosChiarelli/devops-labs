@@ -1,0 +1,8 @@
+---
+- name: Trabalhando templates
+  hosts: localhost
+  tasks:
+    - name: Criando os templates
+      ansible.builtin.template:
+        src: ./exemplo.j2
+        dest: /home/carlos/Projects/devops-labs/devops-pro/11 ansible/10 templates/exemplo.txt

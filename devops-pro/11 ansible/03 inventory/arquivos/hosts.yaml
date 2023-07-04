@@ -1,0 +1,15 @@
+all:
+  hosts:
+    143.198.165.50:
+    134.209.68.130:  
+  vars:
+    ansible_ssh_private_key_file: ~/.ssh/id_rsa
+    ansible_user: root  
+  children:
+    ping:
+      hosts:
+        143.198.165.50: 
+        134.209.68.130:      
+      vars:
+        ansible_ssh_private_key_file: ~/.ssh/id_rsa
+        ansible_user: root          

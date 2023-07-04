@@ -1,0 +1,47 @@
+---
+- name: Criação do usuário carloschiarelli
+  hosts: all
+  remote_user: root
+  tasks:
+    - name: Criar o usuário carloschiarelli
+      ansible.builtin.user:
+        name: carloschiarelli
+        shell: /bin/bash
+        groups: sudo
+        append: yes
+        password: encrypted_password
+    - name: Criar o diretório .ssh
+      ansible.builtin.file:
+        path: /home/carloschiarelli/.ssh
+        state: directory
+        recurse: yes
+        owner: carloschiarelli
+        group: carloschiarelli
+    - name: Adicionando a chave pública em authorized keys
+      ansible.builtin.copy:
+        src: /home/carlos/.ssh/id_rsa.pub
+        dest: /home/carlos/.ssh/authorized_keys
+
+- name: Instalação do nginx e configuração de uma página estática
+  hosts: nginx
+  remote_user: carloschiarelli
+  tasks:
+    - name: Copiar a página web que vai ser usada
+      ansible.builtin.copy:
+        src: ./index.html
+        dest: /home/carloschiarelli/index.html
+    - name: Instalar o nginx
+      become: true
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+    - name: Copiar o arquivo nginx.conf para o servidor
+      become: true
+      ansible.builtin.copy:
+        src: ./nginx.conf
+        dest: /etc/nginx/nginx.conf
+    - name: Reiniciar o serviço do nginx
+      become: true
+      ansible.builtin.service:
+        name: nginx
+        state: restarted

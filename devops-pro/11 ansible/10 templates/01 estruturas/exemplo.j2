@@ -1,0 +1,10 @@
+
+{% for usuario in usuarios %}
+{% if idioma == 'pt-br' %}
+Olá {{ usuario }} !
+Tudo bem com você?
+{% else %}
+Hi {{ usuario }} !
+How are you?
+{% endif %}
+{% endfor %}

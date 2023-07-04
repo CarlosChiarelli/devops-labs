@@ -1,0 +1,12 @@
+---
+- name: Ver os dados de fact
+  hosts: all
+  remote_user: root
+  # gather_facts: false
+  tasks:
+    - name: ver a rede
+      ansible.builtin.debug:
+        msg: "{{ ansible_eth0.ipv4.address }}"
+    - name: ver a distribuição
+      ansible.builtin.debug:
+        msg: "{{ ansible_distribution }}"
